@@ -1,0 +1,2 @@
+export const FAVOURITES = 'FAVOURITES';
+export const UNFAVOURITES = 'UNFAVOURITES';

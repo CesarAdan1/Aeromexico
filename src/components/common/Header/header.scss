@@ -1,0 +1,38 @@
+.head {
+
+    margin-top: 100px;
+    width: 100%;
+    &--highlight {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &--h2 {
+        background: red;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px;
+
+    }
+
+    &--highlight{
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    &--imag {
+        color: white;
+        width: 105px;
+    }
+
+    &--title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0px 43px 0px;
+        color: #fff;
+    }
+}

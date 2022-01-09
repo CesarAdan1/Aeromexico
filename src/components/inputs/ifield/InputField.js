@@ -1,12 +1,14 @@
 import React from 'react'
-import './inputField.scss'
+import './InputFiels.scss'
 
-const InputField = ({onChange, labelTitle, onClick, onBlur}) => {
+const InputField = ({ForName, onChange, type, labelTitle, onClick, onBlur}) => {
     return (
-        <div>
-            <label for={ForName}>
+        <div className='input-field'>
+            <label className='input-field--lab' htmlFor={ForName}>
                 {labelTitle}
                 <input 
+                    type={type}
+                    className='input-field--inp'
                     onBlur={onBlur}
                     onClick={onClick}
                     onChange={onChange}

@@ -1,20 +1,21 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import HarryPotter from '../../../static/assets/harry-potter.png'
+import './header.scss'
 
-const Header = ({user, isLogin, hasPlan, cartIsLoggin, hasAddedLocation}) => {
+const Header = () => {
     return (
-        <div>
-            
-        </div>
+        <header className='head'>
+             <nav className='head--highlight'>
+                <h2 className='head--h2'>
+                    <figure>
+                        <img className="head--imag" src={HarryPotter} alt="Harry Potter" />
+                    </figure>
+                </h2>
+                <h2 className='head--title'>Selecciona tu filtro</h2>
+            </nav>
+        </header>
     )
 }
 
-Header.propTypes = {
-    isLogin: PropTypes.Boolean,
-    user: PropTypes.String,
-    hasPlan: PropTypes.Boolean,
-    cartIsLoggin: PropTypes.Boolean,
-    hasAddedLocation: PropTypes.Boolean
-}
 
 export default Header

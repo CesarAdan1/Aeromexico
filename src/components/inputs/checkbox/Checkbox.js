@@ -1,11 +1,18 @@
 import React from 'react'
 import './checkbox.scss'
 
-const Checkbox = ({onClick, titleCheckbox}) => {
+const Checkbox = ({forW, onClick, titleCheckbox}) => {
     return (
-        <div>
-            <input type="checkbox" onClick={onClick}/>
-            <label>{titleCheckbox}</label>
+        <div className='check-inp'>
+            <label 
+                htmlFor={forW}
+                className='check-inp--label'
+            >{titleCheckbox}</label>
+            <input 
+                className='check-inp--input'
+                type="radio" 
+                onClick={onClick}
+            />
         </div>
     )
 }
