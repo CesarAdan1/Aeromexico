@@ -9,7 +9,7 @@
 }
 
 body {
-    background-image: url('../assets/descarga.jpeg');
+    background-image: url('../assets/background.jpeg');
     //background-repeat: no-repeat;
     overflow: hidden;
     z-index: 1;
@@ -71,11 +71,4 @@ p {
 
 .capitalize{
     text-transform: uppercase;
-}
-
-@media only screen and (min-width: 700px) {
-    .flex-direction-respon {
-        display: flex;
-        flex-direction: row !important;
-    }
 }

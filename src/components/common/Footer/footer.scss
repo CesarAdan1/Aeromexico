@@ -18,10 +18,11 @@
         border-radius: 10px;
         overflow: hidden;
     }
+
     &-lg {
         width: 100%;
     }
-    
+
     &--line {
         height: 100vh;
         overflow: hidden;
@@ -35,6 +36,21 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        cursor: pointer;
+    }
+
+    &--fav {
+       bottom: 36px;
+    right: 161px;
+    background-color: #6B63B5;
+    position: fixed !important;
+    flex-direction: column;
+    display: flex;
+    width: 220px; 
+    text-transform: uppercase;
+    color: white;
+    font-size: 16px;
+    font-weight: 600px;
     }
 }
 
@@ -50,5 +66,15 @@
         width: 100%;
         margin-top: 0;
         z-index: 1;
+
+        &--fav {
+
+            background-color: #6B63B5;
+            position: fixed !important;
+            top: 30px;
+            right: 233px;
+            width: 219px;
+            color: white;
+        }
     }
 }

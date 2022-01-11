@@ -1,11 +1,14 @@
 import axios from 'axios'
 
-const url = "https://localhost/3000/students"
-
 export const getInfo = async () => {
     try{
+        const url = `http://localhost:3000/characters`;
         const res = await axios.get(url)
-    } catch(e){
-        console.log(e)
+        
+        console.log(res)
+       // return res
+    } catch(error){
+        console.log(error)
     }
 }
+

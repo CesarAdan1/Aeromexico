@@ -1,0 +1,1 @@
+import FavMenuItem from '../FavMenuItem'
