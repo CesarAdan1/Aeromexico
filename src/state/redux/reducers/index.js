@@ -7,7 +7,7 @@ const initialState = {
     students: [],
     staff: [],
     favorites: [],
-    noFavorites: [],
+    unfavourite: [],
     showCharacters: null,
     showStudents: null,
     showStaff: null,
@@ -41,23 +41,15 @@ const initialState = {
         }
       case favourite:
         return {
-          ...state,
+          
           favorites: state.favorites.concat(action.data),
         }
       case unfavourite:
-        let temporaryHpInfo = state.charactersHP.map(hpInfoItem => {
-          if(hpInfoItem.name === action.payload.name){
-              hpInfoItem = { 
-                  ...hpInfoItem, favorite: !hpInfoItem.favorite, 
-                  amount: state.amount--
-              }
-          }
-          return hpInfoItem
-      })
-      return {
-          ...state,
-          charactersHP: temporaryHpInfo
-      } 
+        return {
+          favorites: [
+            ...state.favorites
+          ]
+        }
       default:
         return state
     }

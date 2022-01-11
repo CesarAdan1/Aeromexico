@@ -4,10 +4,10 @@ import BookmarkIcon from '@mui/icons-material/Bookmark';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 
 
-const CardPotter = ({item, addFav}) => {
+const CardPotter = ({item, addFav, like}) => {
   const { eyeColour, hairColour, name, dateOfBirth, gender,
     house, alive, image, hogwartsStudent, unfavourite,
-     like } = item
+     } = item
 
   const addToFav = (data) => {
     addFav(data)

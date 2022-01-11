@@ -1,2 +1,0 @@
-import ButtonFilterBy from "../ButtonFilterBy";
-

@@ -4,18 +4,21 @@
   border: 0;
   padding: 0;
   margin: 0;
-  overflow-x: hidden;
   outline: 0;
+  overflow-x: hidden;
 }
 
 body {
-  background-image: url('../assets/Hogwarts.jpg');
+  overflow-x: hidden;
 }
 
 .main {
   background-color: black;
-
- 
+  height: 100vh;
+    width: 100vw;
+    background: no-repeat;
+    background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.J9OdMbOVpTGe6m9VLM2z7gHaHa%26pid%3DApi&f=1);
+    background-size: cover;
 
   &--sec {
     display: flex;
@@ -43,10 +46,6 @@ body {
   overflow: scroll;
   height: 55vh;
   width: 85%;
-}
-
-::-webkit-scrollbar {
-  display: none;
 }
 
 .item-render {
@@ -215,6 +214,7 @@ body {
   display: flex;
   justify-content: center;
   border: 3px solid #6B63B5;
+  z-index: 3;
 }
 
 .buttons-style:hover {

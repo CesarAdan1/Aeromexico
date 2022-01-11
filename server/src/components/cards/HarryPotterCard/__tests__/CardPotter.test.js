@@ -1,2 +1,0 @@
-import CardPotter from "../CardPotter";
-

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import ModalAdd from "../components/Modal/ModalAdd";
+import DeleteIcon from '@mui/icons-material/Delete';
 import CardPotter from "../components/card/CardPotter";
 import Header from '../components/common/Header/Header'
 import Footer from '../components/common/Footer/Footer'
 import HarryP from '../static/assets/harry-potter.svg'
 import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
-import '../static/style/styles.scss';
 
 const Home = (props) => {
   const {
@@ -21,15 +21,18 @@ const Home = (props) => {
     filterStaff,
     showStaff,
     favorites,
+    unfavourite,
     changeStateFav,
     changeStateFavDelete
   } = props;
 
   const [showModal, setShowModal] = useState(false);
-  const [showFav, setShowFav] = useState(false);
+  const [showFav, setShowFav] = useState(true);
   const [isRefresh, setIsRefresh] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const getData = async () => {
+    setLoading(true)
     await axios.get('http://localhost:3000/characters')
       .then(res => {
         changeState(res.data);
@@ -37,6 +40,8 @@ const Home = (props) => {
       .catch(error => {
         console.log('error', error)
       })
+
+      setLoading(false)
   }
 
   const noFavorite = () => {
@@ -44,7 +49,7 @@ const Home = (props) => {
   }
   const favorite = (item) => {
     const filter = favorites.filter((element) => element.id === item.id);
-
+    console.log(filter)
     if (filter.length === 0 && favorites.length < 5) {
       changeStateFav(item)
     }else {
@@ -61,7 +66,9 @@ const Home = (props) => {
   }
 
   const showItems = (item) => {
+    console.log(item)
     const like = favorites.filter((element) => element.id === item.id);
+    console.log(like)
     return (
       <CardPotter
         key={item.name}
@@ -75,25 +82,17 @@ const Home = (props) => {
   const dataForm = async (data) => {
 
     await axios.post('http://localhost:3000/characters', {
-      id: data.name,
+      id: uuidv4() + 1,
       name: data.name,
       species: "human",
       gender: data.gender,
       house: "Gryffindor",
       dateOfBirth: data.birthday,
-      yearOfBirth: 1980,
       ancestry: "half-blood",
       eyeColour: data.eyecolor,
       hairColour: data.eyehair,
-      wand: {
-        wood: "holly",
-        core: "phoenix feather",
-        length: 11
-      },
-      patronus: "stag",
       hogwartsStudent: data.position === "student",
       hogwartsStaff: data.position === "staff",
-      actor: "",
       alive: true,
       image:  "http://hp-api.herokuapp.com/images/harry.jpg"
     })
@@ -107,6 +106,7 @@ const Home = (props) => {
   }
 
   useEffect(() => {
+
     if (!isRefresh) {
       getData();
       setIsRefresh(true);
@@ -137,10 +137,12 @@ const Home = (props) => {
             {favorites.map((fav) => {
               if(fav){
                 return(
-                  <div key={fav.id} className="ft-cont--content">
+                  <div key={uuidv4()} className="ft-cont--content">
                     <img className="ft-cont--imagen" src={fav.image} alt={fav.name} />
                     <span className="ft-cont--name">{fav.name}</span>
-                    <div className="ft-cont--size-ic" onClick={favorite}>D</div>
+                    <div className="ft-cont--size-ic" onClick={favorite}>
+                      <DeleteIcon />
+                    </div>
                   </div>
                 )
               } 
@@ -154,13 +156,16 @@ const Home = (props) => {
       <div className="buttons">
         <span className={colorEstudent} style={{ marginRight: '10%' }} onClick={() => getStudent()}>ESTUDIANTES</span>
         <span className={colorStaff} onClick={() => getStaff()}>STAFF</span>
-      </div>
+      </div> {!loading ?
+        
       <div className="main--sec-all">
+       
         {showCharacters && characters.map((item) => showItems(item))}
         {showStudents && students.map((item) => showItems(item))}
         {showStaff && staff.map((item) => showItems(item))}
       </div>
-
+      : <p className="main--sec-all">Cargando...</p>
+    }
       <ModalAdd
         visible={showModal}
         toogle={() => setShowModal(!showModal)}
@@ -178,6 +183,7 @@ const mapStateToProps = state => ({
   showCharacters: state.showCharacters,
   showStudents: state.showStudents,
   showStaff: state.showStaff,
+  unfavourite: state.unfavourite
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -205,6 +211,12 @@ const mapDispatchToProps = dispatch => ({
       data
     })
   },
+  changeStateFav(data) {
+    dispatch({
+      type: "unfavorite",
+      data
+    })
+  }
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
