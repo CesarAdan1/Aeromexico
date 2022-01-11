@@ -4,8 +4,10 @@ import ModalAdd from "../components/Modal/ModalAdd";
 import CardPotter from "../components/card/CardPotter";
 import Header from '../components/common/Header/Header'
 import Footer from '../components/common/Footer/Footer'
+import HarryP from '../static/assets/harry-potter.svg'
 import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
+import '../static/style/styles.scss';
 
 const Home = (props) => {
   const {
@@ -126,12 +128,12 @@ const Home = (props) => {
 
   return (
     <div className="main">
-      <div>
       <Footer 
         onClick={() => setShowFav(!showFav)}
         onClickModal={() => setShowModal(!showModal)}
         children={
-          showFav > 0 ? <div>
+          showFav > 0 ? 
+          <>
             {favorites.map((fav) => {
               if(fav){
                 return(
@@ -144,13 +146,10 @@ const Home = (props) => {
               } 
             })
             }
-          </div>
+            </>
           : null
         }
       />
-      
-       
-      </div>
         <Header />
       <div className="buttons">
         <span className={colorEstudent} style={{ marginRight: '10%' }} onClick={() => getStudent()}>ESTUDIANTES</span>

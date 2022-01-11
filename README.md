@@ -38,5 +38,7 @@ anadirle un perfil utilizando react router y agregarle una ruta con el nombre de
 # Bugs o problemas
 Al configurar el proyecto olvide colocar un plugin en el archivo .babelrc, lo cual causaba un error al manaejar async/await. Se lo resolvio instalando una dependecia y modificando el archivo .babelrc
 
-Al principio no lograba conectar bien redux y poder usar los reducer lo soluciones buscando mas acerca del funcionamiento de redux es la primera vez que lo utilizo actualmente utilizo mayormente context.
+Redux lo encuentro un poco mas complicado y poder usar los reducer lo soluciones buscando mas acerca del funcionamiento de redux es la primera vez que lo utilizo actualmente utilizo mayormente context.
+
+El proyecto funciona en modo responsive, pero no logre hacer que funcionaran algunas funciones en modo desktop o tablet.
 
