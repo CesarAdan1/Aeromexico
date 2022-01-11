@@ -1,5 +1,6 @@
 import React from 'react'
 import { Modal, Radio, Form } from "antd";
+import 'antd/dist/antd.css';
 
 const ModalAdd = (props) => {
 

@@ -2,7 +2,7 @@ import React from 'react'
 import { Provider } from 'react-redux';
 import store from './state/redux/store';
 import './static/style/style.scss';
-//import 'antd/dist/antd.css';
+import 'antd/dist/antd.css';
 import Home from './views/Home'
 
 function App() {
