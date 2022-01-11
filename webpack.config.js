@@ -10,7 +10,7 @@ module.exports = {
   },
   // webpack 5 comes with devServer which loads in development mode
   devServer: {
-    port: 5002,
+    port: 2007,
     hot: true
   },
   // Rules of how webpack will take our files, complie & bundle them for the browser 
@@ -25,15 +25,15 @@ module.exports = {
       },
       {
         test: /\.(s(a|c)ss)$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+        use: ['style-loader','css-loader', 'sass-loader']
       },
       {
         test: /\.(woff|woff2|eot|ttf|svg|jpg|png)$/,
         use: {
           loader: 'url-loader',
-        }
-      }
+      },
+  },
     ]
   },
   plugins: [new HtmlWebpackPlugin({ template: './src/public/index.html' }), new MiniCssExtractPlugin()],
-}
+} 

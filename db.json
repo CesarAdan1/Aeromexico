@@ -638,6 +638,24 @@
       "actor": "",
       "alive": true,
       "image": "http://hp-api.herokuapp.com/images/harry.jpg"
+    },
+    {
+      "species": "human",
+      "house": "Gryffindor",
+      "yearOfBirth": 1980,
+      "ancestry": "half-blood",
+      "wand": {
+        "wood": "holly",
+        "core": "phoenix feather",
+        "length": 11
+      },
+      "patronus": "stag",
+      "hogwartsStudent": false,
+      "hogwartsStaff": false,
+      "actor": "",
+      "alive": true,
+      "image": "http://hp-api.herokuapp.com/images/harry.jpg",
+      "id": 27
     }
   ]
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import HarryPotter from '../../../static/assets/Harry.svg'
+import HarryPotter from '../../../static/assets/harry-potter.svg'
 import './header.scss'
 
 const Header = () => {

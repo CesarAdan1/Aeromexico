@@ -3,14 +3,15 @@ import BookmarkIcon from '@mui/icons-material/Bookmark';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import './footer.scss'
 
-const Footer = ({ onClick, onClickModal, children }) => {
+const Footer = ({ showMenu, openModal }) => {
     return (
+        <>
         <footer className='ft-cont'>
             <div className='ft-cont--its'>
                 <div className='ft-cont-lg'>
                     <button
                         className='capitalize ft-cont--btn'
-                        onClick={onClick}
+                        onClick={showMenu}
                     >
                         <span>Favoritos</span>
                         <div style={{ marginLeft: '10px' }}>
@@ -20,7 +21,7 @@ const Footer = ({ onClick, onClickModal, children }) => {
                 </div>
                 <div className='ft-cont-lg'>
                     <button
-                        onClick={onClickModal}
+                        onClick={openModal}
                         className='capitalize ft-cont--btn'
                     >
                         <span>Agregar</span>
@@ -29,12 +30,32 @@ const Footer = ({ onClick, onClickModal, children }) => {
                         </div>
                     </button>
                 </div>
-            </div>
-            <div className="ft-cont--fav">
-                {children}
-            </div>
+            </div> 
+            {children}
         </footer>
+       
+        </>
     )
 }
+
+/* 
+ {modalFavShow ?
+                    <span className="ft-cont--fav">
+                        {charactersHP.map((favorites) => {
+                            const { favorite } = favorites
+                            if (favorite) return (
+                                <FavMenuItem
+                                key={favorite.id} {...favorite} />
+                            )
+                        })}
+                    </span>
+                    : null
+                }
+
+const mapStateToProps = (store) => {
+    //console.log(store)
+    const { charactersHP } = store
+    return { charactersHP }
+} */
 
 export default Footer

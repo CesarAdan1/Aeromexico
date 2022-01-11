@@ -31,16 +31,6 @@ li {
     list-style: none;
 }
 
-p {
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-}
-
-
-
 .disabled {
     background-color: var(--button-auth-color);
     color: var(--white);

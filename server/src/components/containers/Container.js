@@ -163,6 +163,23 @@ console.log(data)
             <Footer
                 showMenu={() => toggleModalFav(!modalFavShow)}
                 openModal={() => toggleModal(!modalShown)}
+                children={
+                    showFav > 0 ? <div>
+                      {favorites.map((fav) => {
+                        if(fav){
+                          return(
+                            <div key={fav.id} className="ft-cont--content">
+                              <img className="ft-cont--imagen" src={fav.image} alt={fav.name} />
+                              <span className="ft-cont--name">{fav.name}</span>
+                              <div className="ft-cont--size-ic" onClick={favorite}>D</div>
+                            </div>
+                          )
+                        } 
+                      })
+                      }
+                    </div>
+                    : null
+                  }
             />
             <ModalAdd
                 show={modalShown}

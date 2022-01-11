@@ -1,0 +1,175 @@
+.position-img {
+    width: 122px;
+    height: 134px;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.slytherin-color {
+    background: linear-gradient(135deg, #1C792B 0%, #82E95E 100%);
+    ;
+}
+
+.griphyndor-color {
+    background: linear-gradient(135deg, #FF0000 0%, #FED482 100%);
+    ;
+    // background-color: linear-gradient(358.61deg, #FF0000 4.67%, #FED482 96.97%);;
+}
+
+.ravenclaw-color {
+    background: linear-gradient(135deg, #0597B7 0%, #66D1FF 100%);
+}
+
+.hufflepuff-color {
+    background: linear-gradient(135deg, #FFC700 0%, #FFF388 100%);
+}
+
+.empty {
+    background-color: #6B63B5;
+}
+
+.card {
+    background: #ffffff;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 16px;
+    height: 265px;
+    border-radius: 16px;
+    //width: 515px;
+    margin: 15px;
+    display: flex;
+    flex-direction: row !important;
+    overflow: hidden;
+
+    &--left {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 16px 0px 0px 16px;
+    }
+
+
+    &--cont2 {
+        height: 265px;
+        width: 509px;
+        border-radius: 16px;
+        background: #FFFFFF;
+        margin-left: 25px;
+        margin-right: 25px;
+        height: 265px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    }
+
+    &--cont2-sub {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 55px;
+    }
+
+    &--alive {
+        text-transform: uppercase;
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 19px;
+        color: #999999;
+    }
+
+    &--liked-color {
+        color: #000000;
+
+    }
+
+    &--like {
+        color: #999999;
+
+
+    }
+
+    &--cont2-sub2 h2 {
+   
+        width: auto;
+        height: 87px;
+        left: 235px;
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 30px;
+        line-height: 46px;
+        color: #081F32;
+    }
+
+    &--cont2-sub3 {
+        width: 184 px;
+        height: 112 px;
+        left: 235 px;
+        top: 131 px;
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 27px;
+        color: #374A59;
+    }
+
+    &--cont2-p {
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 27px;
+        color: #374A59;
+    }
+
+    &--cont2-description {
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 19px;
+        text-align: right;
+        color: #999999;
+        margin-left: 6px;
+        text-transform: capitalize;
+
+    }
+
+}
+
+@media only screen and (min-width: 490px) {
+    .card {
+        background: #ffffff;
+        border: 1px solid #000000;
+        box-sizing: border-box;
+        border-radius: 16px;
+        border-radius: 16px;
+        width: 480px;
+        margin: 15px;
+        display: flex;
+        flex-direction: row !important;
+        overflow: hidden;
+
+        &--left {
+            height: 265px;
+            width: 261px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 13px 0px 0px 0px;
+        }
+
+        &--cont2 {
+            height: 265px;
+    border-radius: 16px;
+    background: #FFFFFF;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+        }
+    }
+}
