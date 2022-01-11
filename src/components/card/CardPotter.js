@@ -42,24 +42,25 @@ const CardPotter = ({item, addFav, like}) => {
           
           </span>
         </span>
+            <h2 className='card--h2'>{name}</h2>
         <div className='card--cont2-sub2'>
-          <h2>{name}</h2>
+         
           <div className='card--cont2-sub3'>
-            <div style={{ display: "flex", overflow: 'hidden', alignItems: 'center', height: '20px' }}>
+            <div className="card--cont2-sub3-element">
               <p className='card--cont2-p'>Cumpleanios: </p>
-              <span className='card--cont2-description'>{dateOfBirth === null || dateOfBirth === undefined || dateOfBirth === "" ? "Desconocido" : dateOfBirth}</span>
+              <p className='card--cont2-description'>{dateOfBirth === null || dateOfBirth === undefined || dateOfBirth === "" ? "Desconocido" : dateOfBirth}</p>
             </div>
-            <div style={{ display: "flex", overflow: 'hidden', alignItems: 'center', height: '20px' }}>
+            <div className="card--cont2-sub3-element">
               <p className='card--cont2-p'>Genero: </p>
-              <span className='card--cont2-description'>{gender}</span>
+              <p className='card--cont2-description'>{gender}</p>
             </div>
-            <div style={{ display: "flex", overflow: 'hidden', alignItems: 'center', height: '20px' }}>
+            <div className="card--cont2-sub3-element">
               <p className='card--cont2-p'>Color de ojos: </p>
-              <span className='card--cont2-description'>{eyeColour === "" ? "Dato desconocido" : eyeColour}</span>
+              <p className='card--cont2-description'>{eyeColour === "" ? "Dato desconocido" : eyeColour}</p>
             </div>
-            <div style={{ display: "flex", overflow: 'hidden', alignItems: 'center', height: '20px' }}>
+            <div className="card--cont2-sub3-element">
               <p className='card--cont2-p'>Color de pelo: </p>
-              <span className='card--cont2-description'>{hairColour}</span>
+              <p className='card--cont2-description'>{hairColour}</p>
             </div>
           </div>
         </div>
