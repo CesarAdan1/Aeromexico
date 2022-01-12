@@ -119,31 +119,35 @@ const Home = (props) => {
     await filterStaff(filterStaffData);
   }
 
+  const itemComp = !loading
+    ? <div className="main--sec-all">
+      {showCharacters && characters.map((item) => showItems(item))}
+      {showStudents && students.map((item) => showItems(item))}
+      {showStaff && staff.map((item) => showItems(item))}
+    </div>
+    : <p className="main--sec-all">Cargando...</p>
+
+  const favComp = showFav > 0 ? 
+  favorites.map((fav) => {
+      if (fav) {
+        return (
+          <div key={uuidv4()} className="ft-cont--content">
+            <img className="ft-cont--imagen" src={fav.image} alt={fav.name} />
+            <span className="ft-cont--name">{fav.name}</span>
+            <div className="ft-cont--size-ic" onClick={favorite}>
+              <DeleteIcon />
+            </div>
+          </div>
+        )
+      }
+    }) : null
+
   return (
     <div className="main" data-testid="main">
       <Footer
         onClick={() => setShowFav(!showFav)}
         onClickModal={() => setShowModal(!showModal)}
-        children={
-          showFav > 0 ?
-            <>
-              {favorites.map((fav) => {
-                if (fav) {
-                  return (
-                    <div key={uuidv4()} className="ft-cont--content">
-                      <img className="ft-cont--imagen" src={fav.image} alt={fav.name} />
-                      <span className="ft-cont--name">{fav.name}</span>
-                      <div className="ft-cont--size-ic" onClick={favorite}>
-                        <DeleteIcon />
-                      </div>
-                    </div>
-                  )
-                }
-              })
-              }
-            </>
-            : null
-        }
+        children={favComp}
       />
       <Header />
       <div className="btn-container">
@@ -158,15 +162,8 @@ const Home = (props) => {
           onClick={() => getStaff()}
           staff={showStaff}
         />
-
-      </div> {!loading ?
-        <div className="main--sec-all">
-          {showCharacters && characters.map((item) => showItems(item))}
-          {showStudents && students.map((item) => showItems(item))}
-          {showStaff && staff.map((item) => showItems(item))}
-        </div>
-        : <p className="main--sec-all">Cargando...</p>
-      }
+      </div>
+      {itemComp}
       <ModalAdd
         visible={showModal}
         toogle={() => setShowModal(!showModal)}
@@ -221,49 +218,3 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
-/* 
-<footer className='ft-cont'>
-            <div className='ft-cont--its'>
-                <div className='ft-cont-lg'>
-                    <button
-                        className='capitalize ft-cont--btn'
-                        onClick={() => setShowFav(!showFav)}
-                    >
-                        <span>Favoritos</span>
-                        <div style={{ marginLeft: '10px' }}>
-                            <BookmarkIcon />
-                        </div>
-                    </button>
-                </div>
-                <div className='ft-cont-lg'>
-                    <button
-                        onClick={() => setShowModal(!showModal)}
-                        className='capitalize ft-cont--btn'
-                    >
-                        <span>Agregar</span>
-                        <div style={{ marginLeft: '10px' }}>
-                            <AddCircleOutlineIcon />
-                        </div>
-                    </button>
-                </div>
-            </div>
-            <div className="ft-cont--fav">
-            {
-          showFav > 0 ? <div>
-            {favorites.map((fav) => {
-              if(fav){
-                return(
-                  <div key={fav.id} className="ft-cont--content">
-                    <img className="ft-cont--imagen" src={fav.image} alt={fav.name} />
-                    <span className="ft-cont--name">{fav.name}</span>
-                    <div className="ft-cont--size-ic" onClick={favorite}>D</div>
-                  </div>
-                )
-              } 
-            })
-            }
-          </div>
-          : null
-        }
-            </div>
-        </footer> */
