@@ -5,7 +5,7 @@ import './footer.scss'
 
 const Footer = ({ onClick, onClickModal, children }) => {
     return (
-        <footer className='ft-cont'>
+        <footer className='ft-cont' data-testid="footer">
             <div className='ft-cont--its'>
                 <div className='ft-cont-lg'>
                     <button

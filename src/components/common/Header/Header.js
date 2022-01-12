@@ -4,7 +4,7 @@ import './header.scss'
 
 const Header = () => {
     return (
-        <header className='head'>
+        <header className='head' data-testid="header">
              <nav className='head--highlight'>
                 <h2 className='head--h2'>
                     <figure>

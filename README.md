@@ -17,7 +17,7 @@ Ejecucion para levantar el servidor, levanta en el navegador con la siguiente ur
 ### Corre el cliente en otra terminal con el comando:
 ### `npm run dev`
 
-Ejecucion del proyecto, en el directorio raiz, levanta en el navegador. Abrir: http://localhost:3000
+Ejecucion del proyecto, en el directorio raiz, levanta en el navegador. Abrir: http://localhost:3001
 
 ### tests
 ## `npm run test`

@@ -5,7 +5,6 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import CardPotter from "../components/card/CardPotter";
 import Header from '../components/common/Header/Header'
 import Footer from '../components/common/Footer/Footer'
-import HarryP from '../static/assets/harry-potter.svg'
 import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
 
@@ -23,7 +22,7 @@ const Home = (props) => {
     favorites,
     unfavourite,
     changeStateFav,
-    changeStateFavDelete
+    deleteFav
   } = props;
 
   const [showModal, setShowModal] = useState(false);
@@ -127,7 +126,7 @@ const Home = (props) => {
   const colorStaff = showStaff ? "buttons-style button-active" : "buttons-style button-normal";
 
   return (
-    <div className="main">
+    <div className="main" data-testid="main">
       <Footer 
         onClick={() => setShowFav(!showFav)}
         onClickModal={() => setShowModal(!showModal)}
@@ -211,7 +210,7 @@ const mapDispatchToProps = dispatch => ({
       data
     })
   },
-  changeStateFav(data) {
+  deleteFav(data) {
     dispatch({
       type: "unfavorite",
       data

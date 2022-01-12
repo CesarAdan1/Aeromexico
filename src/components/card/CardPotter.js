@@ -14,7 +14,7 @@ const CardPotter = ({item, addFav, like}) => {
   }
 
   return (
-    <div className='card'>
+    <div className='card' data-testid="card">
       <div className={`card--left ${house === "Slytherin" ? "slytherin-color"
         : house === "Ravenclaw" ? "ravenclaw-color"
           : house === "Hufflepuff" ? "hufflepuff-color"
