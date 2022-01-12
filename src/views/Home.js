@@ -7,6 +7,7 @@ import Header from '../components/common/Header/Header'
 import Footer from '../components/common/Footer/Footer'
 import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
+import Button from "../components/button/Button";
 
 const Home = (props) => {
   const {
@@ -40,7 +41,7 @@ const Home = (props) => {
         console.log('error', error)
       })
 
-      setLoading(false)
+    setLoading(false)
   }
 
   const noFavorite = () => {
@@ -51,7 +52,7 @@ const Home = (props) => {
     console.log(filter)
     if (filter.length === 0 && favorites.length < 5) {
       changeStateFav(item)
-    }else {
+    } else {
       alert("Solo se puede agregar 5 personajes a favoritos")
     }
 
@@ -93,7 +94,7 @@ const Home = (props) => {
       hogwartsStudent: data.position === "student",
       hogwartsStaff: data.position === "staff",
       alive: true,
-      image:  "http://hp-api.herokuapp.com/images/harry.jpg"
+      image: "http://hp-api.herokuapp.com/images/harry.jpg"
     })
       .then(res => {
         getData();
@@ -105,11 +106,7 @@ const Home = (props) => {
   }
 
   useEffect(() => {
-
-    if (!isRefresh) {
-      getData();
-      setIsRefresh(true);
-    }
+    getData()
   }, []);
 
   const getStudent = async () => {
@@ -122,49 +119,54 @@ const Home = (props) => {
     await filterStaff(filterStaffData);
   }
 
-  const colorEstudent = showStudents ? "buttons-style button-active" : "buttons-style button-normal";
-  const colorStaff = showStaff ? "buttons-style button-active" : "buttons-style button-normal";
-
   return (
     <div className="main" data-testid="main">
-      <Footer 
+      <Footer
         onClick={() => setShowFav(!showFav)}
         onClickModal={() => setShowModal(!showModal)}
         children={
-          showFav > 0 ? 
-          <>
-            {favorites.map((fav) => {
-              if(fav){
-                return(
-                  <div key={uuidv4()} className="ft-cont--content">
-                    <img className="ft-cont--imagen" src={fav.image} alt={fav.name} />
-                    <span className="ft-cont--name">{fav.name}</span>
-                    <div className="ft-cont--size-ic" onClick={favorite}>
-                      <DeleteIcon />
+          showFav > 0 ?
+            <>
+              {favorites.map((fav) => {
+                if (fav) {
+                  return (
+                    <div key={uuidv4()} className="ft-cont--content">
+                      <img className="ft-cont--imagen" src={fav.image} alt={fav.name} />
+                      <span className="ft-cont--name">{fav.name}</span>
+                      <div className="ft-cont--size-ic" onClick={favorite}>
+                        <DeleteIcon />
+                      </div>
                     </div>
-                  </div>
-                )
-              } 
-            })
-            }
+                  )
+                }
+              })
+              }
             </>
-          : null
+            : null
         }
       />
-        <Header />
-      <div className="buttons">
-        <span className={colorEstudent} style={{ marginRight: '10%' }} onClick={() => getStudent()}>ESTUDIANTES</span>
-        <span className={colorStaff} onClick={() => getStaff()}>STAFF</span>
+      <Header />
+      <div className="btn-container">
+        <Button
+          title="estudiantes"
+          onClick={() => getStudent()}
+          marginRight="10%"
+          students={showStudents}
+        />
+        <Button
+          title="staff"
+          onClick={() => getStaff()}
+          staff={showStaff}
+        />
+
       </div> {!loading ?
-        
-      <div className="main--sec-all">
-       
-        {showCharacters && characters.map((item) => showItems(item))}
-        {showStudents && students.map((item) => showItems(item))}
-        {showStaff && staff.map((item) => showItems(item))}
-      </div>
-      : <p className="main--sec-all">Cargando...</p>
-    }
+        <div className="main--sec-all">
+          {showCharacters && characters.map((item) => showItems(item))}
+          {showStudents && students.map((item) => showItems(item))}
+          {showStaff && staff.map((item) => showItems(item))}
+        </div>
+        : <p className="main--sec-all">Cargando...</p>
+      }
       <ModalAdd
         visible={showModal}
         toogle={() => setShowModal(!showModal)}

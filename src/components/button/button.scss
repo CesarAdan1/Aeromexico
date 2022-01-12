@@ -1,0 +1,31 @@
+.btn {
+    
+    width: 250px;
+    height: 50px;
+    border-color: #6B63B5;
+    border-top-width: 90px;
+    border-width: 3px;
+    cursor: pointer;
+    color: white;
+    font-size: 17px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border: 3px solid #6B63B5;
+    z-index: 3;
+
+    &:hover{
+        background-color: rgba(107, 99, 181, 0.6);
+
+    }
+
+    &--normal{
+        background-color: rgba(0, 0, 0, 0.6);
+
+    }
+}
+
+.btn--active {
+    background-color: #6B63B5;
+
+}
