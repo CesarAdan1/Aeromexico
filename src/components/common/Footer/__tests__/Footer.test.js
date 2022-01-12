@@ -4,6 +4,6 @@ import { render } from '@testing-library/react'
 
 test("render component", () => {
     const {getByTestId} = render(<Footer />)
-    const footer = getByTestId("card")
+    const footer = getByTestId("footer")
     expect(footer).toBeDefined()
 })

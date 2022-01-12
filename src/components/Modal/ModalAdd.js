@@ -15,13 +15,14 @@ const ModalAdd = (props) => {
       onCancel={props.toogle}
       className="modal"
       footer={false}
+      
     >
       <Form
         name="complex-form"
         onFinish={onFinish}
         layout="vertical"
       >
-        <div className="modal-stye">
+        <div className="modal-stye" data-testid="modal">
           <div style={{ width: '47%' }}>
             <Form.Item
               name="name"

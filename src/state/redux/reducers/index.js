@@ -1,6 +1,9 @@
 import {favourite , unfavourite, 
-    characters, filterStudents, filterStaff, amount
-} from "../actions";
+    characters, filterStudents, filterStaff, amount,
+    CHARACTERS, FILTERSTUDENTS, FILTERSTAFF, FAVOURITE,
+  UNFAVOURITE, AMOUNT
+} from "../types";
+
 
 const initialState = {
     characters: [],
@@ -40,18 +43,35 @@ const initialState = {
           showStaff: true
         }
       case favourite:
+        let inc = (state.amount).length < 5 
+        ? favourites =+ favourites 
+        : "Solo puedes agregar 5 elementos"
         return {
-          
           favorites: state.favorites.concat(action.data),
+          amount: inc
         }
       case unfavourite:
+        let dec = (state.amount).length === 1 
+        ? favourites =- favourites 
+        : "No hay elementos"
         return {
-          favorites: [
-            ...state.favorites
-          ]
+          favorites: state.favorites,
+          amount: dec
         }
       default:
         return state
     }
   }  
 export default reducer;
+
+export const hpReducer = (state = initialState, action) => {
+  switch(action.type){
+    case CHARACTERS:
+      return {
+        ...state,
+
+      }
+    default:
+      return state
+  }
+}

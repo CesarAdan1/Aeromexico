@@ -52,6 +52,8 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.4.7",
     "jest-svg-transformer": "^1.0.0",
+    "jest-transform-stub": "^2.0.0",
+    "jest-transformer-svg": "^1.0.2",
     "less-loader": "^10.2.0",
     "mini-css-extract-plugin": "^2.4.5",
     "node-sass": "^7.0.1",
@@ -78,8 +80,8 @@
     ],
     "transform": {
       "^.+\\.js$": "babel-jest",
-      "^.+\\.svg$": "jest-svg-transformer"
-        },
+      "^.+\\.svg$": "jest-transformer-svg"
+    },
     "transformIgnorePatterns": [
       "node_modules/(?!lodash-es/.*)",
       "/build"
@@ -94,8 +96,8 @@
     ],
     "testEnvironment": "jsdom",
     "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<root>/__mocks__/fileMock.js",
-      "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+      "\\.(css|less|scss|sass)$": "identity-obj-proxy",
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "identity-onj-proxy"
     }
   },
   "browser": {

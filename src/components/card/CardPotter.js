@@ -33,7 +33,7 @@ const CardPotter = ({item, addFav, like}) => {
       <div className='card--cont2'>
         <span className='card--cont2-sub'>
           <p className="card--alive">{`${alive ? "vivo" : "Finado"}`}{" "}/{" "}{`${hogwartsStudent ? "Estudiante" : "Staff"}`}</p>
-          <span onClick={() => addToFav(item)}>
+          <span onClick={() => addToFav(item)} data-testid="like">
 
               {like
                 ? <BookmarkIcon  />
@@ -42,7 +42,7 @@ const CardPotter = ({item, addFav, like}) => {
           
           </span>
         </span>
-            <h2 className='card--h2'>{name}</h2>
+            <h2 className='card--h2' da>{name}</h2>
         <div className='card--cont2-sub2'>
          
           <div className='card--cont2-sub3'>
