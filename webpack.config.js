@@ -10,7 +10,7 @@ module.exports = {
   },
   // webpack 5 comes with devServer which loads in development mode
   devServer: {
-    port: 4002,
+    port: 3001,
     hot: true
   },
   // Rules of how webpack will take our files, complie & bundle them for the browser 
