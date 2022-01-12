@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { connect } from "react-redux";
+import { connect, useDispatch, useSelector } from "react-redux";
 import ModalAdd from "../components/Modal/ModalAdd";
 import DeleteIcon from '@mui/icons-material/Delete';
 import CardPotter from "../components/card/CardPotter";
@@ -8,6 +8,8 @@ import Footer from '../components/common/Footer/Footer'
 import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
 import Button from "../components/button/Button";
+import {favourite as FAVOURTIE
+} from "../state/redux/types";
 
 const Home = (props) => {
   const {
@@ -28,8 +30,10 @@ const Home = (props) => {
 
   const [showModal, setShowModal] = useState(false);
   const [showFav, setShowFav] = useState(true);
-  const [isRefresh, setIsRefresh] = useState(false);
   const [loading, setLoading] = useState(true);
+
+const dispatch = useDispatch()
+const state = useSelector(state => state)
 
   const getData = async () => {
     setLoading(true)
@@ -44,9 +48,22 @@ const Home = (props) => {
     setLoading(false)
   }
 
-  const noFavorite = () => {
+ /*  const like = (id) => async (dispatch, getState) => {
+    try {
+      const { characters } = getState()
+      if (characters.filter(e => e.favorite).length < 5) {
+        dispatch({ type: FAVOURTIE })
+        const res = await axios.patch(`http://localhost:3000/characters/${id}`, { favorite: false });
+        if (res) {
+          dispatch(fetchCharacters())
+          dispatch(fetchFavoriteCharacters())
+        }
+      }
+    } catch (e) {
+        console.log(e)
+    }
+  } */
 
-  }
   const favorite = (item) => {
     const filter = favorites.filter((element) => element.id === item.id);
     console.log(filter)
@@ -64,17 +81,16 @@ const Home = (props) => {
       }
     }
   }
-
+  
   const showItems = (item) => {
     console.log(item)
-    const like = favorites.filter((element) => element.id === item.id);
-    console.log(like)
+    
     return (
       <CardPotter
         key={item.name}
         item={item}
         addFav={favorite}
-        like={like.length > 0}
+        like={true}
       />
     )
   }
@@ -100,13 +116,14 @@ const Home = (props) => {
         getData();
         setShowModal(false);
       })
-      .catch(error => {
-        console.log('error', error)
+      .catch(e => {
+        console.log(e)
       })
   }
 
   useEffect(() => {
     getData()
+    //like()
   }, []);
 
   const getStudent = async () => {
